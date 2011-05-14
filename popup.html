@@ -2,13 +2,13 @@
 <head>
   <meta http-equiv="Content-Type" content="text/HTML; charset=UTF-8"/>
 	<style type="text/css">
-		#content-email {
+		#content {
 			background-image: url(backemail.png);
 			background-repeat: no-repeat;
 			height: 316px;
 			width: 449px;
 		}
-		#theform {
+		.centered {
 			position:absolute;
 			left:80px;
 			top:100px;
@@ -26,9 +26,9 @@
 			// retrieve saved email
 			if (localStorage["email"] != undefined) {
 				document.getElementById("email").value = localStorage["email"];
-				document.getElementById("alwaysInput").setAttribute("checked", "checked")
+				document.getElementById("alwaysInput").setAttribute("checked", "checked");
 			}
-		}
+		};
 
 		function saveEmail() {
 			if (document.getElementById("alwaysInput").checked) {
@@ -40,44 +40,51 @@
 
 		function sendPostData() {
 			saveEmail();
-			// make a POST request to jetable.org
+			// make a POST ajax request to jetable.org
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "http://www.jetable.org/fr/confirm", true);
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			// get data to be sent
+			var data = "email=" + document.myform.email.value + "&time=" + document.myform.time.value;
+			// remove the form
+			document.getElementById("content").removeChild(document.myform);
+
 			xhr.onreadystatechange = function () {
 				if (xhr.readyState == 4) {
 					if (xhr.status == 200) {
 						// parse response from server
-						var doc = xhr.responseText;
-						doc = doc.replace(/^(.*\n)*.*<html/i, "<html");
-						doc = doc.replace(/<\/html>(.*\n)*.*$/i, "</html>");
+						var resp = xhr.responseText;
+						// need to get clean xml so remove stuff before <html> and after </html>
+						resp = resp.replace(/^(.*\n)*.*<html/i, "<html");
+						resp = resp.replace(/<\/html>(.*\n)*.*$/i, "</html>");
 						var parser = new DOMParser();
-						doc = parser.parseFromString(doc, "text/xml");
-						// remove the form
-						var content = document.getElementById("theform");
-						content.removeChild(document.getElementsByTagName('form')[0]);
+						resp = parser.parseFromString(resp, "text/xml");
+						// find the alias if no error
+						var alias = resp.getElementById("aliasgenerated");
 						// show the answer
 						var mydiv = document.createElement("div");
-						var alias = doc.getElementById("aliasgenerated");
+						mydiv.className = "centered";
 						if (alias != null) {
-							mydiv.innerHTML = '<p style="margin-left:25px;">' + chrome.i18n.getMessage("yourAliasIs") + '</p><p style="color:white; font-size: 1.5em; font-weight:bold">' + alias.firstChild.nodeValue + '</p>';
+							mydiv.innerHTML = '<p style="margin-left:25px;">' + chrome.i18n.getMessage("yourAliasIs") + '</p>' +  
+								'<p style="font-size:1.5em; font-weight:bold">' + alias.firstChild.nodeValue + '</p>';
 						} else {
-							mydiv.innerHTML = '<p style="margin-left:25px;"><span style="color:red;font-weight:bold">' + chrome.i18n.getMessage("Error") + '</p>';
+							mydiv.innerHTML = '<p style="margin-left:25px;"><span style="color:red; font-weight:bold">' + 
+								chrome.i18n.getMessage("Error") + '</p>';
 						}
-						content.appendChild(mydiv);
+						document.getElementById("content").appendChild(mydiv);
 					}
 				}
 			}
-			xhr.send("email="+document.myform.email.value+"&time="+document.myform.time.value);
+
+			xhr.send(data);
 			return false;
 		}
 	</script>
 </head>
 
 <body>
-	<div id="content-email">
-		<div id="theform">
-		<form action="" method="post" name="myform" onsubmit="return sendPostData();">
+	<div id="content">
+		<form action="" method="post" name="myform" class="centered" onsubmit="return sendPostData();">
 			<p>
 				<strong id="yourEmailAddress">Email address</strong>
 				<input type="text" name="email" alt="Adresse e-mail" id="email">
@@ -99,7 +106,6 @@
 				<input type="submit" value="Create disposable email" id="inputValue">
 			</p>
 		</form>
-		</div>
 	</div>
 </body>
 </html>
