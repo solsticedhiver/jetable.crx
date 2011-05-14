@@ -1,0 +1,41 @@
+{
+	"extName": {
+		"message": "Email jetable",
+		"description": "Nom de l'extension"
+	},
+	"extTitle": {
+		"message": "Email jetable"
+	},
+	"extDesc": {
+		"message": "Permet de récupérer une email jetable sur jetable.org",
+		"description": "Description de l'extension"
+	},
+	"yourEmailAddress": {
+		"message": "Votre adresse e-mail : ",
+		"description": "Texte de l'input pour l'adresse email"
+	},
+	"lifeSpan": {
+		"message": "Durée de validité"
+	},
+	"oneHour": {
+		"message": "Une heure"
+	},
+	"oneDay": {
+		"message": "Un jour"
+	},
+	"oneWeek": {
+		"message": "Une semaine"
+	},
+	"oneMonth": {
+		"message": "Un mois"
+	},
+	"inputValue": {
+		"message": "Créez votre e-mail jetable"
+	},
+	"yourAliasIs": {
+		"message": "Votre alias est"
+	},
+	"Error": {
+		"message": "Erreur : </span>&nbsp; Adresse email invalide"
+	}
+}

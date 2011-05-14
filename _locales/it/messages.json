@@ -1,0 +1,38 @@
+{
+	"extName": {
+		"message": "E-mail usa e getta"
+	},
+	"extTitle": {
+		"message": "E-mail usa e getta"
+	},
+	"extDesc": {
+		"message": "Prendi un e-mail usa e getta da jetable.org"
+	},
+	"yourEmailAddress": {
+		"message": "Posta elettronica :"
+	},
+	"lifeSpan": {
+		"message": "Periodo di validità:"
+	},
+	"oneHour": {
+		"message": "un'ora"
+	},
+	"oneDay": {
+		"message": "un giorno"
+	},
+	"oneWeek": {
+		"message": "una settimana"
+	},
+	"oneMonth": {
+		"message": "un mese"
+	},
+	"inputValue": {
+		"message": "Create la vostra elettronica provvisoria "
+	},
+	"yourAliasIs": {
+		"message": "Il tuo alias è"
+	},
+	"Error": {
+		"message": "Errore: </span>&nbsp; Indirizzo email non valido!"
+	}
+}

@@ -1,0 +1,84 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/HTML; charset=UTF-8"/>
+	<style type="text/css">
+		#content-email {
+			background-image: url(backemail.png);
+			background-repeat: no-repeat;
+			height: 316px;
+			width: 449px;
+		}
+		#theform {
+			position:absolute;
+			left:80px;
+			top:100px;
+			color: white;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			// translate every string
+			var localeStrings = ["yourEmailAddress", "lifeSpan", "oneHour", "oneDay", "oneWeek", "oneMonth"];
+			for (i=0, length=localeStrings.length; i<length; i++) {
+				document.getElementById(localeStrings[i]).innerText = chrome.i18n.getMessage(localeStrings[i]);
+			}
+			document.getElementById("inputValue").value = chrome.i18n.getMessage("inputValue");
+		}
+
+		function sendPostData() {
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "http://www.jetable.org/fr/confirm", true);
+			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						var doc = xhr.responseText;
+						doc = doc.replace(/^(.*\n)*.*<html/i, "<html");
+						doc = doc.replace(/<\/html>(.*\n)*.*$/i, "</html>");
+						var parser = new DOMParser();
+						doc = parser.parseFromString(doc, "text/xml");
+						var content = document.getElementById("theform");
+						content.removeChild(document.getElementsByTagName('form')[0]);
+						var mydiv = document.createElement("div");
+						var alias = doc.getElementById("aliasgenerated");
+						if (alias != null) {
+							mydiv.innerHTML = '<p style="margin-left:25px;">' + chrome.i18n.getMessage("yourAliasIs") + '</p><p style="color:white; font-size: 1.5em; font-weight:bold">' + alias.firstChild.nodeValue + '</p>';
+						} else {
+							mydiv.innerHTML = '<p style="margin-left:25px;"><span style="color:red;font-weight:bold">' + chrome.i18n.getMessage("Error") + '</p>';
+						}
+						content.appendChild(mydiv);
+					}
+				}
+			}
+			xhr.send("email="+document.myform.email.value+"&time="+document.myform.time.value);
+			return false;
+		}
+	</script>
+</head>
+
+<body>
+	<div id="content-email">
+		<div id="theform">
+		<form action="" method="post" name="myform" onsubmit="return sendPostData();">
+			<p id="email">
+				<strong id="yourEmailAddress"></strong>
+				<input type="text" name="email" alt="Adresse e-mail"/>
+			</p>
+			<p>
+				<strong id="lifeSpan"></strong>
+
+				<select name="time">
+					<option value="3600" selected="selected" id="oneHour"></option>
+					<option value="86400" id="oneDay"></option>
+					<option value="604800" id="oneWeek"></option>
+					<option value="2592000" id="oneMonth"></option>
+				</select>
+				<br>
+				<br>
+				<input type="submit" value="" id="inputValue">
+			</p>
+		</form>
+		</div>
+	</div>
+</body>
+</html>

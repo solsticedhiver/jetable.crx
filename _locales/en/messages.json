@@ -1,0 +1,38 @@
+{
+	"extName": {
+		"message": "Disposable email"
+	},
+	"extTitle": {
+		"message": "Disposable email"
+	},
+	"extDesc": {
+		"message": "Get a disposable email from jetable.org"
+	},
+	"yourEmailAddress": {
+		"message": "Email address:"
+	},
+	"lifeSpan": {
+		"message": "Life span:"
+	},
+	"oneHour": {
+		"message": "One hour"
+	},
+	"oneDay": {
+		"message": "One day"
+	},
+	"oneWeek": {
+		"message": "One week"
+	},
+	"oneMonth": {
+		"message": "One month"
+	},
+	"inputValue": {
+		"message": "Create your disposable email address"
+	},
+	"yourAliasIs": {
+		"message": "Your alias is"
+	},
+	"Error": {
+		"message": "Error: </span>&nbsp; Invalid email address !"
+	}
+}

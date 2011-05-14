@@ -1,0 +1,38 @@
+{
+	"extName": {
+		"message": "E-mail descartável"
+	},
+	"extTitle": {
+		"message": "E-mail descartável"
+	},
+	"extDesc": {
+		"message": "Receba um e-mail descartável jetable.org"
+	},
+	"yourEmailAddress": {
+		"message": "Endereço de E-mail"
+	},
+	"lifeSpan": {
+		"message": "Duração "
+	},
+	"oneHour": {
+		"message": "uma hora"
+	},
+	"oneDay": {
+		"message": "um dia"
+	},
+	"oneWeek": {
+		"message": "uma semana"
+	},
+	"oneMonth": {
+		"message": "um mês"
+	},
+	"inputValue": {
+		"message": "Crie o seu e-mail descartável"
+	},
+	"yourAliasIs": {
+		"message": "Seu apelido é"
+	},
+	"Error": {
+		"message": "Erro: </span>&nbsp; Endereço de email inválido!"
+	}
+}

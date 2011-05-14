@@ -1,0 +1,38 @@
+{
+	"extName": {
+		"message": "Correo electrónico desechables"
+	},
+	"extTitle": {
+		"message": "Correo electrónico desechables"
+	},
+	"extDesc": {
+		"message": "Obtenga un correo electrónico desechables de jetable.org"
+	},
+	"yourEmailAddress": {
+		"message": "Correo electrónico :"
+	},
+	"lifeSpan": {
+		"message": "Duración de validez :"
+	},
+	"oneHour": {
+		"message": "una hora"
+	},
+	"oneDay": {
+		"message": "un día"
+	},
+	"oneWeek": {
+		"message": "una semana"
+	},
+	"oneMonth": {
+		"message": "un mes"
+	},
+	"inputValue": {
+		"message": "Crea su e-mail efímero"
+	},
+	"yourAliasIs": {
+		"message": "Su alias es"
+	},
+	"Error": {
+		"message": "Error: </span>&nbsp; No válida dirección de correo electrónico!"
+	}
+}

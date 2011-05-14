@@ -1,0 +1,38 @@
+{
+	"extName": {
+		"message": "使い捨てメール"
+	},
+	"extTitle": {
+		"message": "使い捨てメール"
+	},
+	"extDesc": {
+		"message": "jetable.org から使い捨てメールでお知らせします"
+	},
+	"yourEmailAddress": {
+		"message": "メールアドレス："
+	},
+	"lifeSpan": {
+		"message": "有効期間："
+	},
+	"oneHour": {
+		"message": "1 時間"
+	},
+	"oneDay": {
+		"message": "1 日"
+	},
+	"oneWeek": {
+		"message": "1 週"
+	},
+	"oneMonth": {
+		"message": "1 か月"
+	},
+	"inputValue": {
+		"message": "使い捨てメールを作成する"
+	},
+	"yourAliasIs": {
+		"message": "エイリアスは、"
+	},
+	"Error": {
+		"message": "エラー: </span>&nbsp; 無効なメールアドレス!"
+	}
+}

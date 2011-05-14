@@ -1,0 +1,38 @@
+{
+	"extName": {
+		"message": "Wegwerp e-mail"
+	},
+	"extTitle": {
+		"message": "Wegwerp e-mail"
+	},
+	"extDesc": {
+		"message": "Ontvang een wegwerp e-mail van jetable.org"
+	},
+	"yourEmailAddress": {
+		"message": "E-mailadres: "
+	},
+	"lifeSpan": {
+		"message": "Levensduur: "
+	},
+	"oneHour": {
+		"message": "een uur"
+	},
+	"oneDay": {
+		"message": "een dag"
+	},
+	"oneWeek": {
+		"message": "een week"
+	},
+	"oneMonth": {
+		"message": "een maand"
+	},
+	"inputValue": {
+		"message": "Maak mijn wegwerp-adres aan"
+	},
+	"yourAliasIs": {
+		"message": "Je alias is"
+	},
+	"Error": {
+		"message": "Fout: </span>&nbsp; Ongeldig e-mailadres!"
+	}
+}

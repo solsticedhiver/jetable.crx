@@ -1,0 +1,38 @@
+{
+	"extName": {
+		"message": "Wegwerf-E-Mail Adresse"
+	},
+	"extTitle": {
+		"message": "Wegwerf-E-Mail Adresse"
+	},
+	"extDesc": {
+		"message": "Holen Sie sich eine Wegwerf-E-Mail von jetable.org"
+	},
+	"yourEmailAddress": {
+		"message": "E-Mail:"
+	},
+	"lifeSpan": {
+		"message": "Gültigkeitsdauer : "
+	},
+	"oneHour": {
+		"message": "Eine Stunde"
+	},
+	"oneDay": {
+		"message": "Ein Tag"
+	},
+	"oneWeek": {
+		"message": "Eine Woche"
+	},
+	"oneMonth": {
+		"message": "Ein Monat"
+	},
+	"inputValue": {
+		"message": "Temporäre E-Mailadresse erstellen!"
+	},
+	"yourAliasIs": {
+		"message": "Ihr Alias ist"
+	},
+	"Error": {
+		"message": "Fehler: </span>&nbsp; Ungültige E-Mail-Adresse !"
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"extName": {
+		"message": "一次性電子郵件"
+	},
+	"extTitle": {
+		"message": "一次性電子郵件"
+	},
+	"extDesc": {
+		"message": "獲得一個一次性的電子郵件從 jetable.org"
+	},
+	"yourEmailAddress": {
+		"message": "電子郵件信箱: "
+	},
+	"lifeSpan": {
+		"message": "信箱時效:"
+	},
+	"oneHour": {
+		"message": "一个小时"
+	},
+	"oneDay": {
+		"message": "一天"
+	},
+	"oneWeek": {
+		"message": "一个星期"
+	},
+	"oneMonth": {
+		"message": "一个月"
+	},
+	"inputValue": {
+		"message": "建立您的拋棄式電子郵件地址"
+	},
+	"yourAliasIs": {
+		"message": "您的別名是"
+	},
+	"Error": {
+		"message": "錯誤: </span>&nbsp; 無效的電子郵件地址"
+	}
+}
