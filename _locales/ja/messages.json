@@ -11,6 +11,9 @@
 	"yourEmailAddress": {
 		"message": "メールアドレス："
 	},
+	"always": {
+		"message": "電子メールを忘れないでください"
+	},
 	"lifeSpan": {
 		"message": "有効期間："
 	},

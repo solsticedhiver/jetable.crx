@@ -11,6 +11,9 @@
 	"yourEmailAddress": {
 		"message": "E-Mail:"
 	},
+	"always": {
+		"message": "Denken Sie daran, E-Mail"
+	},
 	"lifeSpan": {
 		"message": "Gültigkeitsdauer : "
 	},

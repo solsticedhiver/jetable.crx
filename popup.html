@@ -18,27 +18,45 @@
 	<script type="text/javascript">
 		window.onload = function() {
 			// translate every string
-			var localeStrings = ["yourEmailAddress", "lifeSpan", "oneHour", "oneDay", "oneWeek", "oneMonth"];
+			var localeStrings = ["yourEmailAddress", "lifeSpan", "oneHour", "oneDay", "oneWeek", "oneMonth", "always"];
 			for (i=0, length=localeStrings.length; i<length; i++) {
 				document.getElementById(localeStrings[i]).innerText = chrome.i18n.getMessage(localeStrings[i]);
 			}
 			document.getElementById("inputValue").value = chrome.i18n.getMessage("inputValue");
+			// retrieve saved email
+			if (localStorage["email"] != undefined) {
+				document.getElementById("email").value = localStorage["email"];
+				document.getElementById("alwaysInput").setAttribute("checked", "checked")
+			}
+		}
+
+		function saveEmail() {
+			if (document.getElementById("alwaysInput").checked) {
+				localStorage["email"] = document.getElementById("email").value;
+			} else {
+				localStorage.removeItem("email");
+			}
 		}
 
 		function sendPostData() {
+			saveEmail();
+			// make a POST request to jetable.org
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "http://www.jetable.org/fr/confirm", true);
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			xhr.onreadystatechange = function () {
 				if (xhr.readyState == 4) {
 					if (xhr.status == 200) {
+						// parse response from server
 						var doc = xhr.responseText;
 						doc = doc.replace(/^(.*\n)*.*<html/i, "<html");
 						doc = doc.replace(/<\/html>(.*\n)*.*$/i, "</html>");
 						var parser = new DOMParser();
 						doc = parser.parseFromString(doc, "text/xml");
+						// remove the form
 						var content = document.getElementById("theform");
 						content.removeChild(document.getElementsByTagName('form')[0]);
+						// show the answer
 						var mydiv = document.createElement("div");
 						var alias = doc.getElementById("aliasgenerated");
 						if (alias != null) {
@@ -60,22 +78,25 @@
 	<div id="content-email">
 		<div id="theform">
 		<form action="" method="post" name="myform" onsubmit="return sendPostData();">
-			<p id="email">
-				<strong id="yourEmailAddress"></strong>
-				<input type="text" name="email" alt="Adresse e-mail"/>
+			<p>
+				<strong id="yourEmailAddress">Email address</strong>
+				<input type="text" name="email" alt="Adresse e-mail" id="email">
+				<br>
+				<input type="checkbox" id="alwaysInput" onclick="saveEmail()">
+				<label for="alwaysInput" id="always" onclick="saveEmail();">Remember email</label>
 			</p>
 			<p>
-				<strong id="lifeSpan"></strong>
+				<strong id="lifeSpan">Life span</strong>
 
 				<select name="time">
-					<option value="3600" selected="selected" id="oneHour"></option>
-					<option value="86400" id="oneDay"></option>
-					<option value="604800" id="oneWeek"></option>
-					<option value="2592000" id="oneMonth"></option>
+					<option value="3600" selected="selected" id="oneHour">One hour</option>
+					<option value="86400" id="oneDay">One day</option>
+					<option value="604800" id="oneWeek">One week</option>
+					<option value="2592000" id="oneMonth">One month</option>
 				</select>
 				<br>
 				<br>
-				<input type="submit" value="" id="inputValue">
+				<input type="submit" value="Create disposable email" id="inputValue">
 			</p>
 		</form>
 		</div>

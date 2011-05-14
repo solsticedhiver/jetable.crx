@@ -11,6 +11,9 @@
 	"yourEmailAddress": {
 		"message": "電子郵件信箱: "
 	},
+	"always": {
+		"message": "記住電子郵件"
+	},
 	"lifeSpan": {
 		"message": "信箱時效:"
 	},

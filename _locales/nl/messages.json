@@ -11,6 +11,9 @@
 	"yourEmailAddress": {
 		"message": "E-mailadres: "
 	},
+	"always": {
+		"message": "Vergeet niet e-mail"
+	},
 	"lifeSpan": {
 		"message": "Levensduur: "
 	},

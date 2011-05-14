@@ -11,6 +11,9 @@
 	"yourEmailAddress": {
 		"message": "Posta elettronica :"
 	},
+	"always": {
+		"message": "Ricorda E-mail"
+	},
 	"lifeSpan": {
 		"message": "Periodo di validità:"
 	},

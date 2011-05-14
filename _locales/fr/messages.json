@@ -11,8 +11,11 @@
 		"description": "Description de l'extension"
 	},
 	"yourEmailAddress": {
-		"message": "Votre adresse e-mail : ",
+		"message": "Votre adresse email : ",
 		"description": "Texte de l'input pour l'adresse email"
+	},
+	"always": {
+		"message": "Se souvenir de l'email"
 	},
 	"lifeSpan": {
 		"message": "Durée de validité"
@@ -30,7 +33,7 @@
 		"message": "Un mois"
 	},
 	"inputValue": {
-		"message": "Créez votre e-mail jetable"
+		"message": "Créez votre email jetable"
 	},
 	"yourAliasIs": {
 		"message": "Votre alias est"
